@@ -38,73 +38,79 @@ $(() => {
   }
 
 
-    //プラグインを定義
-  
-  
-  
-    $(window).on("load", () => {
-      gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger);
 
- 
-      let area = document.querySelector(".wrapper");
-      let wrap = document.querySelector(".content");
-      let main = $(".main");
-      let mainPh = $(".main__ph");
-      let mainW = main.width()
+  let $cont = $('.content')
+  let $looks = $(".looks")
+  let $look = $(".look")
+  let len = $look.length
+  let scrub = true // 慣性
 
-      //横スクロール
+  //横スクロール
+  let scrollTween = gsap.to($cont[0], {
+    // gsap.toでscrollTriggerを使う場合、xの値は最大スクロール量なので、$cont.offsetWidth（要素の横幅） - innerWidth（画面幅）で、最大スクロール量を調整
+    x: () => - ($cont[0].offsetWidth - $(window).width()), // 関数の戻り値にしてあるとresizeに対応してくれる
+    ease: 'none',
+    scrollTrigger: {
+      trigger: $cont[0],
+      invalidateOnRefresh: true, // 多分滑らかにしてくれる
+      pin: true, // 上下移動させない
+      scrub: scrub, // 慣性
+      // end: $cont.offsetWidth - innerWidth,
+    },
+  })
 
-      gsap.to(wrap, {
-        x: () => -(wrap.offsetWidth - innerWidth) + "px",
-        ease: "none",
-        scrollTrigger: {
-          trigger: wrap,
-          invalidateOnRefresh: true,
-          pin: true,
-          scrub: true,
-          end: () => "+=" + (wrap.offsetWidth - innerWidth),
-        },
-      });
+  let zoomTimeline2 = gsap.timeline({
+    scrollTrigger: {
+      trigger: $look.eq(1)[0],
+      scrub: scrub,
+      start: 'left center',
+      end: 'right center',
+      containerAnimation: scrollTween,
+    },
+  })
 
-      let start = 0;
-      let end = (main.width() / 6) * 2;
+  zoomTimeline2.to($looks[0], { scale: 1.5, x: - 100 / len * 0.5 * (0.5 + 1) + '%', })
+  zoomTimeline2.to($looks[0], { scale: 1, x: '0%', })
 
-      let tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".main", //アニメーションが始まるトリガーとなる要素
-          start: "+=" + start,
-          end: "+=" + end,
-          scrub: true, //スクロール量に合わせてアニメーションが進む（数字も指定できる）
-        },
-      });
-      tl.to(".main", { scale: 1.5 });
-      tl.to(".main", { scale: 1 });
+  let zoomTimeline4 = gsap.timeline({
+    scrollTrigger: {
+      trigger: $look.eq(3)[0],
+      scrub: scrub,
+      start: 'left center',
+      end: 'right center',
+      containerAnimation: scrollTween,
+    },
+  })
 
-    let mainphTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".main", //アニメーションが始まるトリガーとなる要素
-        start: "+=" + start,
-        end: "+=" + end,
-        scrub: true, //スクロール量に合わせてアニメーションが進む（数字も指定できる
-      },
-    });
-      mainphTl.to(".main__ph", { x: () => - util.scr * 0.5 + "px" });
-      mainphTl.to(".main__ph", { x: () => 0 + "px" });
+  zoomTimeline4.to($looks[0], { scale: 1.5, x: - 100 / len * 0.5 * (0.5 + 3) + '%', })
+  zoomTimeline4.to($looks[0], { scale: 1, x: '0%', })
 
-      // gsap.to(".main__ph", {
-      //   x: () => -(wrap.offsetWidth - innerWidth) + "px",
-      //   ease: "none",
-      //   scrollTrigger: {
-      //     trigger: ".main", //アニメーションが始まるトリガーとなる要素
-      //     start: "+=" + start,
-      //     end: "+=" + end,
-      //     scrub: true, //スクロール量に合わせてアニメーションが進む（数字も指定できる
-      //   },
-      // });
+  let zoomTimeline6 = gsap.timeline({
+    scrollTrigger: {
+      trigger: $look.eq(5)[0],
+      scrub: scrub,
+      start: 'left center',
+      end: 'right center',
+      containerAnimation: scrollTween,
+    },
+  })
 
-    
-    })
+  zoomTimeline6.to($looks[0], { scale: 1.5, x: - 100 / len * 0.5 * (0.5 + 5) + '%', })
+  zoomTimeline6.to($looks[0], { scale: 1, x: '0%', })
 
+  let zoomTimeline7 = gsap.timeline({
+    scrollTrigger: {
+      trigger: $look.eq(6)[0],
+      scrub: scrub,
+      start: 'left center',
+      end: 'right center',
+      containerAnimation: scrollTween,
+    },
+  })
+
+  zoomTimeline7.to($looks[0], { scale: 1.5, x: - 100 / len * 0.5 * (0.5 + 6) + '%', })
+  zoomTimeline7.to($looks[0], { scale: 1, x: '0%', })
 
 
   // new ClassTemplate

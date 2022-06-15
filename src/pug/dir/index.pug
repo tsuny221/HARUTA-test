@@ -20,12 +20,14 @@ block script
   script(src=JS_DIR + 'index.js?01' type='text/javascript' charset='UTF-8')
 
 block content
-  section
-    .wrapper
-      .content
-
-        .main
-          .main__ph
-            img(src=IMAGE_DIR+"ph.jpg", alt="")
+  .content
+    .mv
+      | main visual
+    .looks
+      - for(let i = 0; i < 9; i++)
+        .look
+          img.look__img(src=IMAGE_DIR+"look_" + (i + 1) + ".jpg", alt="")
+    .outro
+      | outro
 
 block modal

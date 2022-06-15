@@ -17,20 +17,37 @@
   overflow hidden
 
 .content
+  display flex
   position fixed
   top 0
   left 0
 
-.main
+.mv
+.outro
+  position relative
+  z-index 0
+  flex-shrink 0
+  width 100vw
+  height 100vh
+  background-color #ccc
+  font-size 30px
+  text-align center
+  line-height 100vh
+
+.looks
+  position relative
+  z-index 1
+  display flex
   width auto
   transform-origin top left
   will-change transform
 
-  &__ph
-    transform translate3d(0,0,0)
-    transform-origin top left
+.look
+  flex-shrink 0
+  transform translate3d(0,0,0)
+  transform-origin top left
 
-  img
+  &__img
     object-fit cover
     width auto
     height 100vh
