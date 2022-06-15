@@ -53,8 +53,8 @@ $(() => {
         markers: true,
         trigger: $look.eq(num)[0],
         scrub: scrub,
-        start: '-20% center',
-        end: '120% center',
+        start: '-20% 50%',
+        end: '120% 50%',
         containerAnimation: scrollTween,
         onLeaveBack: () => {
           if(num === 0) {
