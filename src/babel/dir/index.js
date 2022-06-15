@@ -124,62 +124,6 @@ $(() => {
   zoomTimeline[6].to($looks[0], { scale: 1.5, x: - 100 / len * 0.5 * (0.5 + 6.5) + '%', })
   zoomTimeline[6].to($looks[0], { scale: 1, x: '0%', })
 
-  zoomTimeline2.to($looks[0], {
-    scale: 1.5,
-    x: (-100 / len) * 0.5 * (0.5 + 1) + "%",
-  });
-  zoomTimeline2.to($looks[0], {
-    scale: 1.5,
-    x: (-100 / len) * 0.5 * (0.5 + 1) + "%",
-  });
-  zoomTimeline2.to($looks[0], {
-    scale: 1.5,
-    x: (-100 / len) * 0.5 * (0.5 + 1) + "%",
-  });
-  zoomTimeline2.to($looks[0], { scale: 1, x: "0%" });
-  zoomTimeline4.to($looks[0], {
-    scale: 1.5,
-    x: (-100 / len) * 0.5 * (0.5 + 3) + "%",
-  });
-  zoomTimeline4.to($looks[0], {
-    scale: 1.5,
-    x: (-100 / len) * 0.5 * (0.5 + 3) + "%",
-  });
-  zoomTimeline4.to($looks[0], {
-    scale: 1.5,
-    x: (-100 / len) * 0.5 * (0.5 + 3) + "%",
-  });
-  zoomTimeline4.to($looks[0], { scale: 1, x: "0%" });
-  zoomTimeline6.to($looks[0], {
-    scale: 1.5,
-    x: (-100 / len) * 0.5 * (0.5 + 5) + "%",
-  });
-  zoomTimeline6.to($looks[0], {
-    scale: 1.5,
-    x: (-100 / len) * 0.5 * (0.5 + 5) + "%",
-  });
-  zoomTimeline6.to($looks[0], {
-    scale: 1.5,
-    x: (-100 / len) * 0.5 * (0.5 + 5) + "%",
-  });
-  zoomTimeline6.to($looks[0], {
-    scale: 1.5,
-    x: (-100 / len) * 0.5 * (0.5 + 5.5) + "%",
-  });
-  zoomTimeline7.to($looks[0], {
-    scale: 1.5,
-    x: (-100 / len) * 0.5 * (0.5 + 6) + "%",
-  });
-  zoomTimeline7.to($looks[0], {
-    scale: 1.5,
-    x: (-100 / len) * 0.5 * (0.5 + 6) + "%",
-  });
-  zoomTimeline7.to($looks[0], {
-    scale: 1.5,
-    x: (-100 / len) * 0.5 * (0.5 + 6) + "%",
-  });
-  zoomTimeline7.to($looks[0], { scale: 1, x: "0%" });
-
   // new ClassTemplate
 
   // usage of libs
