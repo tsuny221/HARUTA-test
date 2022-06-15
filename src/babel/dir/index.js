@@ -41,10 +41,44 @@ $(() => {
   gsap.registerPlugin(ScrollTrigger);
 
   let $cont = $('.content')
-  let $looks = $(".looks")
-  let $look = $(".look")
+  let $looks = $('.looks')
+  let $look = $('.look')
+  let $credit = $('.credit')
   let len = $look.length
-  let scrub = true // 慣性
+  let scrub = 0.65 // 慣性
+
+  let zoomTimeline = (num) => {
+    return gsap.timeline({
+      scrollTrigger: {
+        markers: true,
+        trigger: $look.eq(num)[0],
+        scrub: scrub,
+        start: '-20% center',
+        end: '120% center',
+        containerAnimation: scrollTween,
+        onLeaveBack: () => {
+          if(num === 0) {
+            $credit.html('credit button test')
+          } else {
+            $credit.html('credit button ' + (num + 1 - 1))
+          }
+        },
+        onEnter: () => {
+          $credit.html('credit button ' + (num + 1))
+        },
+        onEnterBack: () => {
+          $credit.html('credit button ' + (num + 1))
+        },
+        onLeave: () => {
+          if(num === len - 1) {
+            $credit.html('')
+          } else {
+            $credit.html('credit button ' + (num + 1 + 1))
+          }
+        }
+      },
+    })
+  }
 
   //横スクロール
   let scrollTween = gsap.to($cont[0], {
@@ -60,55 +94,30 @@ $(() => {
     },
   })
 
-  let zoomTimeline2 = gsap.timeline({
-    scrollTrigger: {
-      trigger: $look.eq(1)[0],
-      scrub: scrub,
-      start: 'left center',
-      end: 'right center',
-      containerAnimation: scrollTween,
-    },
-  })
+  let zoomTimeline1 = zoomTimeline(0)
+  let zoomTimeline2 = zoomTimeline(1)
+  let zoomTimeline3 = zoomTimeline(2)
+  let zoomTimeline4 = zoomTimeline(3)
+  let zoomTimeline5 = zoomTimeline(4)
+  let zoomTimeline6 = zoomTimeline(5)
+  let zoomTimeline7 = zoomTimeline(6)
+  let zoomTimeline8 = zoomTimeline(7)
+  let zoomTimeline9 = zoomTimeline(8)
 
   zoomTimeline2.to($looks[0], { scale: 1.5, x: - 100 / len * 0.5 * (0.5 + 1) + '%', })
+  zoomTimeline2.to($looks[0], { scale: 1.5, x: - 100 / len * 0.5 * (0.5 + 1) + '%', })
+  zoomTimeline2.to($looks[0], { scale: 1.5, x: - 100 / len * 0.5 * (0.5 + 1) + '%', })
   zoomTimeline2.to($looks[0], { scale: 1, x: '0%', })
-
-  let zoomTimeline4 = gsap.timeline({
-    scrollTrigger: {
-      trigger: $look.eq(3)[0],
-      scrub: scrub,
-      start: 'left center',
-      end: 'right center',
-      containerAnimation: scrollTween,
-    },
-  })
-
+  zoomTimeline4.to($looks[0], { scale: 1.5, x: - 100 / len * 0.5 * (0.5 + 3) + '%', })
+  zoomTimeline4.to($looks[0], { scale: 1.5, x: - 100 / len * 0.5 * (0.5 + 3) + '%', })
   zoomTimeline4.to($looks[0], { scale: 1.5, x: - 100 / len * 0.5 * (0.5 + 3) + '%', })
   zoomTimeline4.to($looks[0], { scale: 1, x: '0%', })
-
-  let zoomTimeline6 = gsap.timeline({
-    scrollTrigger: {
-      trigger: $look.eq(5)[0],
-      scrub: scrub,
-      start: 'left center',
-      end: 'right center',
-      containerAnimation: scrollTween,
-    },
-  })
-
   zoomTimeline6.to($looks[0], { scale: 1.5, x: - 100 / len * 0.5 * (0.5 + 5) + '%', })
-  zoomTimeline6.to($looks[0], { scale: 1, x: '0%', })
-
-  let zoomTimeline7 = gsap.timeline({
-    scrollTrigger: {
-      trigger: $look.eq(6)[0],
-      scrub: scrub,
-      start: 'left center',
-      end: 'right center',
-      containerAnimation: scrollTween,
-    },
-  })
-
+  zoomTimeline6.to($looks[0], { scale: 1.5, x: - 100 / len * 0.5 * (0.5 + 5) + '%', })
+  zoomTimeline6.to($looks[0], { scale: 1.5, x: - 100 / len * 0.5 * (0.5 + 5) + '%', })
+  zoomTimeline6.to($looks[0], { scale: 1.5, x: - 100 / len * 0.5 * (0.5 + 5.5) + '%', })
+  zoomTimeline7.to($looks[0], { scale: 1.5, x: - 100 / len * 0.5 * (0.5 + 6) + '%', })
+  zoomTimeline7.to($looks[0], { scale: 1.5, x: - 100 / len * 0.5 * (0.5 + 6) + '%', })
   zoomTimeline7.to($looks[0], { scale: 1.5, x: - 100 / len * 0.5 * (0.5 + 6) + '%', })
   zoomTimeline7.to($looks[0], { scale: 1, x: '0%', })
 
