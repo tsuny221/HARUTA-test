@@ -47,22 +47,21 @@ $(() => {
 
   gsap.registerPlugin(ScrollTrigger);
 
-  let $cont = $(".content");
-  let $looks = $(".looks");
-  let $look = $(".look");
-  let $credit = $(".credit");
-  let len = $look.length;
-  let scrub = true; // 慣性
+  let $cont = $('.content')
+  let $looks = $('.looks')
+  let $look = $('.look')
+  let $credit = $('.credit')
+  let len = $look.length
+  let scrub = true // 慣性
 
-  let zoomTimeline = (num) => {
+  let setZoomTimeline = (num) => {
     return gsap.timeline({
       scrollTrigger: {
         markers: true,
         trigger: $look.eq(num)[0],
         scrub: scrub,
-        horizontal: true,
-        start: "-20% center",
-        end: "120% center",
+        start: '0% 50%',
+        end: '100% 50%',
         containerAnimation: scrollTween,
         onLeaveBack: () => {
           if (num === 0) {
@@ -102,15 +101,28 @@ $(() => {
     },
   });
 
-  let zoomTimeline1 = zoomTimeline(0);
-  let zoomTimeline2 = zoomTimeline(1);
-  let zoomTimeline3 = zoomTimeline(2);
-  let zoomTimeline4 = zoomTimeline(3);
-  let zoomTimeline5 = zoomTimeline(4);
-  let zoomTimeline6 = zoomTimeline(5);
-  let zoomTimeline7 = zoomTimeline(6);
-  let zoomTimeline8 = zoomTimeline(7);
-  let zoomTimeline9 = zoomTimeline(8);
+  let zoomTimeline = []
+
+  for(let i = 0; i < len; i++) {
+    zoomTimeline[i] = setZoomTimeline(i)
+  }
+
+  zoomTimeline[1].to($looks[0], { scale: 1.5, x: - 100 / len * 0.5 * (0.5 + 1) + '%', })
+  zoomTimeline[1].to($looks[0], { scale: 1.5, x: - 100 / len * 0.5 * (0.5 + 1) + '%', })
+  zoomTimeline[1].to($looks[0], { scale: 1.5, x: - 100 / len * 0.5 * (0.5 + 1) + '%', })
+  zoomTimeline[1].to($looks[0], { scale: 1, x: '0%', })
+  zoomTimeline[3].to($looks[0], { scale: 1.5, x: - 100 / len * 0.5 * (0.5 + 3) + '%', })
+  zoomTimeline[3].to($looks[0], { scale: 1.5, x: - 100 / len * 0.5 * (0.5 + 3) + '%', })
+  zoomTimeline[3].to($looks[0], { scale: 1.5, x: - 100 / len * 0.5 * (0.5 + 3) + '%', })
+  zoomTimeline[3].to($looks[0], { scale: 1, x: '0%', })
+  zoomTimeline[5].to($looks[0], { scale: 1.5, x: - 100 / len * 0.5 * (0.5 + 4.75) + '%', })
+  zoomTimeline[5].to($looks[0], { scale: 1.5, x: - 100 / len * 0.5 * (0.5 + 5) + '%', })
+  zoomTimeline[5].to($looks[0], { scale: 1.5, x: - 100 / len * 0.5 * (0.5 + 5.25) + '%', })
+  zoomTimeline[5].to($looks[0], { scale: 1.5, x: - 100 / len * 0.5 * (0.5 + 5.49999) + '%', })
+  zoomTimeline[6].to($looks[0], { scale: 1.5, x: - 100 / len * 0.5 * (0.5 + 6) + '%', })
+  zoomTimeline[6].to($looks[0], { scale: 1.5, x: - 100 / len * 0.5 * (0.5 + 6.25) + '%', })
+  zoomTimeline[6].to($looks[0], { scale: 1.5, x: - 100 / len * 0.5 * (0.5 + 6.5) + '%', })
+  zoomTimeline[6].to($looks[0], { scale: 1, x: '0%', })
 
   zoomTimeline2.to($looks[0], {
     scale: 1.5,

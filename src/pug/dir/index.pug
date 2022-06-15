@@ -20,18 +20,21 @@ block script
   script(src=JS_DIR + 'index.js?01' type='text/javascript' charset='UTF-8')
 
 block content
-  #smooth-content
+  .wrapper
+    #smooth-content
 
-    p.credit credit button test
+      p.credit credit button test
 
-    .content
-      .mv
-        | main visual
-      .looks
-        - for(let i = 0; i < 9; i++)
-          .look
-            img.look__img(src=IMAGE_DIR+"look_" + (i + 1) + ".jpg", alt="")
-      .outro
-        | outro
+      p.credit credit button test
+
+      .content
+        .mv
+          | main visual
+        .looks
+          - for(let i = 0; i < 9; i++)
+            .look
+              img.look__img(src=IMAGE_DIR+"look_" + (i + 1) + ".jpg", alt="")
+        .outro
+          | outro
 
 block modal
