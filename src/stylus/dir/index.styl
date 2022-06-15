@@ -1,0 +1,117 @@
+@charset "utf-8"
+@import '../libs/easing'
+@import '../libs/mixins'
+@import '../base/meta'
+
+@import '../base/base'
+
+@import '../modules/common/*'
+
+// @media screen and (max-width: (BREAKPOINT)px)
+
+// body
+//   overflow hidden
+//   overflow-y scroll
+
+.wrapper
+  overflow hidden
+
+.content
+  position fixed
+  top 0
+  left 0
+
+.main
+  width auto
+  transform-origin top left
+  will-change transform
+
+  &__ph
+    transform translate3d(0,0,0)
+    transform-origin top left
+
+  img
+    object-fit cover
+    width auto
+    height 100vh
+
+.list
+  display flex
+
+.item
+  position relative
+  width (1280 / 3)px
+  height 100vh
+  display flex
+  justify-content center
+  align-items center
+
+  &:nth-child(2)
+    background-color orange
+  
+  &:nth-child(3)
+    background-color green
+
+    .people
+
+      &:nth-child(1)
+        width 250px
+
+  &:nth-child(4)
+    background-color blue
+
+    .people
+      width 250px
+
+  
+  &:nth-child(5)
+    background-color yellow
+
+    .people
+
+      &:nth-child(2)
+        width 250px
+
+  &:nth-child(6)
+    background-color orange
+  
+  &:nth-child(7)
+    background-color green
+
+  &:nth-child(8)
+    background-color blue
+  
+  &:nth-child(9)
+    background-color yellow
+
+.people
+  position absolute
+  z-index 10
+  width 200px
+
+  &:nth-child(1)
+    top 0%
+    left 800px
+  
+  &:nth-child(2)
+    top 10%
+    left 100px
+
+    img
+      transform scale(-1,1) scale(0.5)
+
+.line
+  position absolute
+  z-index 1
+  display block
+  top 40%
+  left 0
+  width 100%
+
+
+@media screen and (max-width: (BREAKPOINT)px)
+
+
+  .item
+    position relative
+    width (750 * 2 *  mn)
